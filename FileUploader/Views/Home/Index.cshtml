@@ -1,0 +1,30 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>Hobbies</h3>
+@foreach (var item in Model)
+{
+    <p>@item</p>
+}
+
+<form method="post" action="/home/IndexPost" enctype="multipart/form-data">
+    <input type="file" name="hobby" />
+    <input type="submit" />
+</form>
+<input type="text" id="text" value="empty" />
+<button id="filler" onclick="">Filler Button</button>
+
+@*<h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+
+@section scripts {
+
+    <script>
+        $("#filler").click(function () {
+            alert("button clicked")
+            document.getElementById("text").value = "Filled box.";
+        });</script>
+}
